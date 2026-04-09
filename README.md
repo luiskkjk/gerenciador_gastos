@@ -1,4 +1,4 @@
-### Gerenciador de Gastos
+# Gerenciador de Gastos
 ## Descrição do Problema
 
 Já se perdeu nos gastos no meio do mês? Ou então não soube para onde seu dinheiro estava indo? Esse é um problema comum, e é exatamente o que o projeto busca solucionar, a falta de controle financeiro.
