@@ -1,4 +1,2 @@
-Flask
-SQLAlchemy
-SQLite
-DateTime
+flask>=3.1.2
+flask-sqlalchemy>=3.1.1
