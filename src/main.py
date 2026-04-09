@@ -42,12 +42,14 @@ def editar(id):
         return render_template('editar.html', gasto=gasto)
     elif request.method == "POST":
         valor = request.form['valorGasto']
-        data = request.form['dataGasto']
+        data_str = request.form['dataGasto']
         descricao = request.form['descGasto']
         categoria = request.form['catGasto']
 
+        data_objeto = datetime.strptime(data_str, '%Y-%m-%d').date()
+
         gasto.valor = valor
-        gasto.data = data
+        gasto.data = data_objeto
         gasto.descricao = descricao
         gasto.categoria = categoria
         db.session.commit()

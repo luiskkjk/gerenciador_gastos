@@ -7,11 +7,12 @@
 </head>
 <body>
     <h1>Editar gasto</h1>
-    <form action="" method="post"></form>
+    <form action="{{ url_for('editar', id=gasto.id) }}" method="POST">
         Valor: <input type="number" name="valorGasto" id="valorGasto" value="{{gasto.valor}}" required>
         Data: <input type="date" name="dataGasto" id="dataGasto" value="{{gasto.data}}" required>
         Descrição: <input type="text" name="descGasto" id="descGasto" value="{{gasto.descricao}}">
         Categoria: <input type="text" name="catGasto" id="catGasto" value="{{gasto.categoria}}">
         <input type="submit" value="Editar">
+    </form>
 </body>
 </html>
