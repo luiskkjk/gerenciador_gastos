@@ -1,24 +1,11 @@
-# Ambiente virtual
 venv/
 env/
-
-# Python
 __pycache__/
 *.pyc
 *.pyo
-
-# Variáveis de ambiente
 .env
-
-# Banco SQLite
 *.db
-
-# Arquivos do Flask
 instance/
-
-# VSCode
 .vscode/
-
-# Sistema operacional
 .DS_Store
 Thumbs.db

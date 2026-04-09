@@ -3,8 +3,6 @@ from db import db
 from datetime import datetime
 from models import Gastos
 
-
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///dados.db"
 db.init_app(app)
@@ -19,7 +17,7 @@ def adicionar():
     if request.method == 'GET':
         return render_template('adicionar.html')
     elif request.method =='POST':
-        data_str=request.form.get('dataGasto')
+        data_str=request.form.get('dataGasto')  # Recebe a data como string no formato 'YYYY-MM-DD'
        
         if not data_str:
             return "Data é obrigatória!"

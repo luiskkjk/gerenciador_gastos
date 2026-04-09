@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="edit_add.html">
     <title>Editar</title>
 </head>
 <body>
     <h1>Editar gasto</h1>
     <form action="{{ url_for('editar', id=gasto.id) }}" method="POST">
-        Valor: <input type="number" name="valorGasto" id="valorGasto" value="{{gasto.valor}}" required>
-        Data: <input type="date" name="dataGasto" id="dataGasto" value="{{gasto.data}}" required>
-        Descrição: <input type="text" name="descGasto" id="descGasto" value="{{gasto.descricao}}">
-        Categoria: <input type="text" name="catGasto" id="catGasto" value="{{gasto.categoria}}">
+        <div class="inputsCont">
+            Valor: <input type="number" name="valorGasto" id="valorGasto" value="{{gasto.valor}}" required>
+            Data: <input type="date" name="dataGasto" id="dataGasto" value="{{gasto.data}}" required>
+            <button type="button" onclick="setToday()">Hoje</button>
+            Descrição: <input type="text" name="descGasto" id="descGasto" value="{{gasto.descricao}}">
+            Categoria: <input type="text" name="catGasto" id="catGasto" value="{{gasto.categoria}}">
+        </div>
         <input type="submit" value="Editar">
     </form>
+    <script>
+        function setToday() {
+            const today = new Date().toISOString().slice(0, 10);
+            document.getElementById('dataGasto').value = today;
+        }
+    </script>
 </body>
 </html>

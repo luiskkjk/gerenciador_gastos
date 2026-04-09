@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,16 @@
     <form action="" method="POST">
         Valor: <input type="number" name="valorGasto" id="valorGasto" required>
         Data: <input type="date" name="dataGasto" id="dataGasto" required>
+        <button type="button" onclick="setToday()">Hoje</button>
         Descrição: <input type="text" name="descGasto" id="descGasto">
         Categoria: <input type="text" name="catGasto" id="catGasto">
         <input type="submit" value="Registrar">
     </form>
+    <script>
+        function setToday() {
+            const today = new Date().toISOString().slice(0, 10);
+            document.getElementById('dataGasto').value = today;
+        }
+    </script>
 </body>
 </html>
