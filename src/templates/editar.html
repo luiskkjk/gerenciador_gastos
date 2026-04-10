@@ -14,15 +14,47 @@
             Data: <input type="date" name="dataGasto" id="dataGasto" value="{{gasto.data}}" required>
             <button type="button" onclick="setToday()">Hoje</button>
             Descrição: <input type="text" name="descGasto" id="descGasto" value="{{gasto.descricao}}">
-            Categoria: <input type="text" name="catGasto" id="catGasto" value="{{gasto.categoria}}">
+            Categoria existente:
+            <select name="categoriaSelecionada" id="categoriaSelecionada" onchange="toggleNovaCategoria()">
+                <option value="">Selecione uma categoria</option>
+                {% for categoria in categorias %}
+                    <option value="{{ categoria }}" {% if categoria == gasto.categoria %}selected{% endif %}>{{ categoria }}</option>
+                {% endfor %}
+                <option value="nova">Criar nova categoria</option>
+            </select>
+            <div id="novaCategoriaContainer" style="display: none;">
+                Nova categoria: <input type="text" name="novaCategoria" id="novaCategoria">
+            </div>
         </div>
         <input type="submit" value="Editar">
+    </form>
+
+    <form action="{{ url_for('deletar_categoria') }}" method="POST" onsubmit="return confirm('Deseja apagar esta categoria de todos os gastos?');">
+        <input type="hidden" name="categoriaParaApagar" id="categoriaParaApagar" value="">
+        <input type="hidden" name="editarId" value="{{ gasto.id }}">
+        <button type="submit" id="btnApagarCategoria" disabled>Apagar categoria</button>
     </form>
     <script>
         function setToday() {
             const today = new Date().toISOString().slice(0, 10);
             document.getElementById('dataGasto').value = today;
         }
+        function toggleNovaCategoria() {
+            const select = document.getElementById('categoriaSelecionada');
+            const novaContainer = document.getElementById('novaCategoriaContainer');
+            const apagarCategoria = document.getElementById('btnApagarCategoria');
+            const categoriaParaApagar = document.getElementById('categoriaParaApagar');
+            const selecionada = select.value;
+            novaContainer.style.display = selecionada === 'nova' ? 'block' : 'none';
+            if (selecionada && selecionada !== 'nova') {
+                apagarCategoria.disabled = false;
+                categoriaParaApagar.value = selecionada;
+            } else {
+                apagarCategoria.disabled = true;
+                categoriaParaApagar.value = '';
+            }
+        }
+        window.addEventListener('DOMContentLoaded', toggleNovaCategoria);
     </script>
 </body>
 </html>
