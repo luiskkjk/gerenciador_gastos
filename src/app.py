@@ -17,7 +17,8 @@ def get_categorias():
 @app.route('/')
 def home():
     gastos = db.session.query(Gastos).all()
-    return render_template('home.html', gastos=gastos)
+    total_gasto = sum(gasto.valor or 0 for gasto in gastos)
+    return render_template('home.html', gastos=gastos, total_gasto=total_gasto)
 
 @app.route('/adicionar', methods=['GET', 'POST'])
 def adicionar():

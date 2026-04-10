@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/home.css') }}">
     <title>Home</title>
 </head>
 <body>
-    <h1>Gastos</h1>
+    <div class="card">
+        <header>
+            <h1>Gastos</h1>
+        </header>
     <ul>
         {% for gasto in gastos %}
-            <li>{{gasto.valor}} - {{gasto.descricao}} - {{gasto.categoria}} - {{gasto.data}}  |  
-                <a href="/editar/{{gasto.id}}" id="butEdit">Editar</a>
-                <a href="/deletar/{{gasto.id}}" id="butDel">Deletar</a>
+            <li>
+                <div class="gasto-info">
+                    R${{gasto.valor}} - {{gasto.descricao}} - {{gasto.categoria}} - {{ gasto.data.strftime('%d/%m/%Y') }}
+                </div>    
+                <div class="gasto-actions">
+                    <a href="/editar/{{gasto.id}}" class="btn btn-edit">Editar</a>
+                    <a href="/deletar/{{gasto.id}}" class="btn btn-delete">Deletar</a>
+                </div>
             </li>
         {% endfor %}
-    </ul>
-    <a href="/adicionar">Adicionar gasto</a>
+    </ul>  
+        <a class="btn btn-add" href="/adicionar">Adicionar</a>
+
+    <h2>Resumo de gastos</h2>
+    <p><b><u>Total gasto: R$ {{ total_gasto }}</u></b></p>
+    
+    </div>
 </body>
 </html>
