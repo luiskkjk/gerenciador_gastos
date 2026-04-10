@@ -1,0 +1,9 @@
+# Este arquivo é a configuração para o pre-commit, que é uma ferramenta que ajuda a garantir a qualidade do código antes de ser commitado.
+
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.0 # Use a versão mais atual
+    hooks:
+      - id: ruff
+        args: [ --fix ]
+      - id: ruff-format
