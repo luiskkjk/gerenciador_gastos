@@ -8,23 +8,30 @@
 <body>
     <h1>Adicionar gasto</h1>
     <form action="" method="POST">
-        Valor: <input type="number" name="valorGasto" id="valorGasto" required>
+        Valor: <input type="number" name="valorGasto" id="valorGasto" required><br><br>
+
         Data: <input type="date" name="dataGasto" id="dataGasto" required>
-        <button type="button" onclick="setToday()">Hoje</button>
-        Descrição: <input type="text" name="descGasto" id="descGasto">
-        Categoria existente:
+        <button type="button" onclick="setToday()">Hoje</button><br><br>
+
+        Descrição: <input type="text" name="descGasto" id="descGasto"><br><br>
+
+        Categoria:
         <select name="categoriaSelecionada" id="categoriaSelecionada" onchange="toggleNovaCategoria()">
-            <option value="">Selecione uma categoria</option>
+            <option value="">Selecione uma categoria</option> 
+
             {% for categoria in categorias %}
-                <option value="{{ categoria }}">{{ categoria }}</option>
+                <option value="{{ categoria }}">{{ categoria }}</option> 
             {% endfor %}
+
             <option value="nova">Criar nova categoria</option>
-        </select>
+        </select><br><br>
         <div id="novaCategoriaContainer" style="display: none;">
-            Nova categoria: <input type="text" name="novaCategoria" id="novaCategoria">
+            Nova categoria: <input type="text" name="novaCategoria" id="novaCategoria"> <br><br>
         </div>
+
         <input type="submit" value="Registrar">
     </form>
+
     <script>
         function setToday() {
             const today = new Date().toISOString().slice(0, 10);

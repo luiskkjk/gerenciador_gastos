@@ -15,16 +15,16 @@
         {% for gasto in gastos %}
             <li>
                 <div class="gasto-info">
-                    R${{gasto.valor}} - {{gasto.descricao}} - {{gasto.categoria}} - {{ gasto.data.strftime('%d/%m/%Y') }}
+                    <b>Valor:</b> R${{gasto.valor}} - <b>Descrição:</b> {{gasto.descricao}} - <b>Categoria:</b> {{gasto.categoria}} - <b>Data:</b> {{ gasto.data.strftime('%d/%m/%Y') }}
                 </div>    
                 <div class="gasto-actions">
                     <a href="/editar/{{gasto.id}}" class="btn btn-edit">Editar</a>
-                    <a href="/deletar/{{gasto.id}}" class="btn btn-delete">Deletar</a>
+                    <a href="/deletar/{{gasto.id}}" class="btn btn-delete">Deletar</a><br><br>
                 </div>
             </li>
         {% endfor %}
     </ul>  
-        <a class="btn btn-add" href="/adicionar">Adicionar</a>
+        <a class="btn btn-add" href="/adicionar">Adicionar Gasto</a>
 
     <h2>Resumo de gastos</h2>
     <p><b><u>Total gasto: R$ {{ total_gasto }}</u></b></p>

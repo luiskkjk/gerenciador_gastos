@@ -10,23 +10,26 @@
     <h1>Editar gasto</h1>
     <form action="{{ url_for('editar', id=gasto.id) }}" method="POST">
         <div class="inputsCont">
-            Valor: <input type="number" name="valorGasto" id="valorGasto" value="{{gasto.valor}}" required>
+            Valor: <input type="number" name="valorGasto" id="valorGasto" value="{{gasto.valor}}" required><br><br>
+
             Data: <input type="date" name="dataGasto" id="dataGasto" value="{{gasto.data}}" required>
-            <button type="button" onclick="setToday()">Hoje</button>
-            Descrição: <input type="text" name="descGasto" id="descGasto" value="{{gasto.descricao}}">
-            Categoria existente:
+            <button type="button" onclick="setToday()">Hoje</button><br><br>
+
+            Descrição: <input type="text" name="descGasto" id="descGasto" value="{{gasto.descricao}}"><br><br>
+
+            Categoria:
             <select name="categoriaSelecionada" id="categoriaSelecionada" onchange="toggleNovaCategoria()">
                 <option value="">Selecione uma categoria</option>
                 {% for categoria in categorias %}
                     <option value="{{ categoria }}" {% if categoria == gasto.categoria %}selected{% endif %}>{{ categoria }}</option>
                 {% endfor %}
                 <option value="nova">Criar nova categoria</option>
-            </select>
+            </select><br><br>
             <div id="novaCategoriaContainer" style="display: none;">
-                Nova categoria: <input type="text" name="novaCategoria" id="novaCategoria">
+                Nova categoria: <input type="text" name="novaCategoria" id="novaCategoria"><br><br>
             </div>
         </div>
-        <input type="submit" value="Editar">
+        <input type="submit" value="Editar"><br><br>
     </form>
 
     <form action="{{ url_for('deletar_categoria') }}" method="POST" onsubmit="return confirm('Deseja apagar esta categoria de todos os gastos?');">
