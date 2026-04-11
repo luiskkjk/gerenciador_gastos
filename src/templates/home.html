@@ -15,7 +15,7 @@
         {% for gasto in gastos %}
             <li>
                 <div class="gasto-info">
-                    <b>Valor:</b> R${{gasto.valor}} - <b>Descrição:</b> {{gasto.descricao}} - <b>Categoria:</b> {{gasto.categoria}} - <b>Data:</b> {{ gasto.data.strftime('%d/%m/%Y') }}
+                    <b>Valor:</b> R${{gasto.valor}} - <b>Descrição:</b> {{gasto.descricao}} - <b>Categoria:</b> {{gasto.categoria}} - <b>Data:</b> {{ gasto.data.strftime('%Y/%m/%d') }}
                 </div>    
                 <div class="gasto-actions">
                     <a href="/editar/{{gasto.id}}" class="btn btn-edit">Editar</a>

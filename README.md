@@ -51,6 +51,16 @@ Execute o projeto
     Acesse em http://127.0.0.1:5000
 ```
 
+### Instruções para o teste
+```
+    pytest tests/test_app.py
+```
+
+### Instruções para o ruff
+```
+    ruff check .
+```
+
 ## Autor 
 
 Luis Eduardo Borges - https://github.com/luiskkjk
@@ -58,3 +68,5 @@ Luis Eduardo Borges - https://github.com/luiskkjk
 ## Repositório
 
 https://github.com/luiskkjk/gerenciador_gastos
+
+* Versão 1.5.5
