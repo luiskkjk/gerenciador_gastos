@@ -4,8 +4,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 
 try:
-    from .db import db
-    from .models import Gastos
+    from src.db import db
+    from src.models import Gastos
 except ImportError:
     from db import db
     from models import Gastos
