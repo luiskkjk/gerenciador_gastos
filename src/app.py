@@ -1,6 +1,7 @@
 # Este arquivo define as rotas e a lógica principal da aplicação Flask.
 # Ele importa as classes de modelo do arquivo models.py para interagir com o banco de dados e renderizar as páginas HTML.
 
+import os
 from flask import Flask, render_template, request, redirect, url_for
 
 try:
@@ -13,8 +14,18 @@ from datetime import datetime
 import requests
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///dados.db"
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
+    basedir, "database.db"
+)
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 db.init_app(app)
+
+with app.app_context():
+    db.create_all()
+    print("Banco de dados verificado/criado com sucesso!")
 
 
 def get_categorias():
