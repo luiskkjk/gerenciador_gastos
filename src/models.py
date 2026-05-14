@@ -1,11 +1,15 @@
 # Aqui estão definidas as classes de modelo para a aplicação, que funcionam como a estrutura para os dados.
 # Cada classe representa uma tabela no banco de dados, e os atributos da classe correspondem às colunas da tabela.
 
-from src.db import db
+try:
+    from src.db import db
+except ImportError:
+    from db import db
 
 
 class Gastos(db.Model):
     __tablename__ = "gastos"
+    __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.Integer, primary_key=True)
     valor = db.Column(db.Float, nullable=False)
