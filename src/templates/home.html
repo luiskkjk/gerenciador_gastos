@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/home.css') }}">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <title>Home</title>
 </head>
 <body>
@@ -25,10 +27,16 @@
         {% endfor %}
     </ul>  
         <a class="btn btn-add" href="/adicionar">Adicionar Gasto</a>
-
     <h2>Resumo de gastos</h2>
     <p><b><u>Total gasto: R$ {{ total_gasto }}</u></b></p>
     
     </div>
+     
+    <h2>Informações financeiras</h2>    
+    <p><b>SELIC em {{ data_selic }}:</b> {{ selic }}%</p>
+    <p><b>CDI em {{ data_cdi }}:</b> {{ cdi }}%</p>
+    <p><b>IPCA em {{ data_ipca }}:</b> {{ ipca }}%</p>
+    <p><b>Dólar em {{ data_dolar }}:</b> R$ {{ dolar }}</p>
+
 </body>
 </html>
