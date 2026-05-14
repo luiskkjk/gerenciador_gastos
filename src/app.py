@@ -2,9 +2,14 @@
 # Ele importa as classes de modelo do arquivo models.py para interagir com o banco de dados e renderizar as páginas HTML.
 
 from flask import Flask, render_template, request, redirect, url_for
-from db import db
+
+try:
+    from .db import db
+    from .models import Gastos
+except ImportError:
+    from db import db
+    from models import Gastos
 from datetime import datetime
-from models import Gastos
 import requests
 
 app = Flask(__name__)
@@ -21,6 +26,8 @@ def get_categorias():
 def home():
     gastos = db.session.query(Gastos).all()
     total_gasto = sum(gasto.valor or 0 for gasto in gastos)
+
+    # Apresentação de dados da API do Banco Central para mostrar a SELIC, CDI, IPCA e Dólar na página inicial.
 
     # SELIC
     resposta_selic = requests.get(
