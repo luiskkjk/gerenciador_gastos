@@ -36,3 +36,8 @@ jobs:
       - name: Check syntax
         run: |
           python -m py_compile src/main.py
+
+      # Executar testes
+      - name: Run tests
+        run: |
+          pytest tests/ --tb=short
