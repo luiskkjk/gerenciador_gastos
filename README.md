@@ -59,6 +59,11 @@ Execute o projeto
     pytest tests/test_app.py
 ```
 
+### Instruções para o teste de integração
+```
+    pytest tests/test_integracao.py
+```
+
 ### Instruções para o ruff
 ```
     ruff check .
