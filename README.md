@@ -72,4 +72,4 @@ Luis Eduardo Borges - https://github.com/luiskkjk
 
 https://github.com/luiskkjk/gerenciador_gastos
 
-* Versão 1.5.5
+* Versão 2.6.6
