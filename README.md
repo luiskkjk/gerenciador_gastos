@@ -20,12 +20,14 @@ O projeto visa alcançar aqueles que querem atingir um maior nível de controle 
 - Listar gastos
 - Editar gastos
 - Excluir gastos
+- Exibir informações do mundo financeiro
 
 ## Tecnologias utilizadas
 - Python 3.13
 - Flask 3.1.2
 - SQLAlchemy 3.1.1
 - SQLite
+- API SGS Banco Central
 
 ## Instruções de uso
 
